@@ -12,13 +12,15 @@ const PlanProvider = ({children}: PlanProviderProps) => {
     const [plan, setPlan] = useState<Workout[]>([]);
   const [saved, setSaved] = useState<Workout[]>([]);
 const [completed, setCompleted] = useState<Workout[]>([]);
+
   const sharedata= {
     plan,
     setPlan,
     saved,
     setSaved,
     completed,
-    setCompleted
+    setCompleted,
+    
 
   }
   

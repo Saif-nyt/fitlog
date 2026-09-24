@@ -11,7 +11,6 @@ const MarkAsDone = ({workout}: MarkAsDoneProps) => {
   const  handlemarkAsDone =()=>{
 
  
-    console.log('button kaaaaaaaaaaaaaaaj korcheeeeeeeeeeeeee')
     setCompleted((previous) => {
     return [...previous, workout] as Workout[];
   });

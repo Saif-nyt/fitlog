@@ -1,7 +1,13 @@
+import { Dispatch, SetStateAction } from "react";
 import { Workout } from "./workouttype";
 
 export interface LibrarycardProps {
   workout: Workout;
+}
+
+export interface ListedCardWorkoutProps {
+  workout: Workout;
+  setPlan: Dispatch<SetStateAction<Workout[]>>;
 }
 
 export interface AddtodaysPlanProps {

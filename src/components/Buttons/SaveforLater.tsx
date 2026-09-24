@@ -11,7 +11,7 @@ const SaveforLater = ({workout}: SaveforLaterProps) => {
     const {saved, setSaved}= useContext(Plancontext)
     const handleSaveforLater = ()=>{
 console.log("button triggerd", workout)
-setSaved((previousplan)=>[...previousplan, saved] as Workout[])}
+setSaved((previousplan)=>[...previousplan, workout] as Workout[])}
     return (
      <div>
              <button

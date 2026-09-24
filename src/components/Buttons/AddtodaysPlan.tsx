@@ -6,10 +6,10 @@ import { Plancontext } from '@/context/Plancontext';
 import { AddtodaysPlanProps } from '@/types/props';
 
 const AddtodaysPlan = ({workout}: AddtodaysPlanProps) => {
-    const {plan, setPlan}= useContext(Plancontext)
+    const {setPlan}= useContext(Plancontext)
     const handleAddtoplan = ()=>{
 console.log("button triggerd", workout)
-setPlan((previousplan)=>[...previousplan, plan] as Workout[])
+setPlan((previousplan)=>[...previousplan, workout] as Workout[])
     }
     return (
         <div>
