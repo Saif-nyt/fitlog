@@ -2,6 +2,7 @@
 
 
 import React, { useContext } from 'react';
+import { toast } from 'react-toastify';
 import { Plancontext } from '@/context/Plancontext';
 import { MarkAsDoneProps } from '@/types/props';
 import { Workout } from '@/types/workouttype';
@@ -17,6 +18,7 @@ const MarkAsDone = ({workout}: MarkAsDoneProps) => {
    setPlan((previous) => {
     return previous.filter((item) => item.id !== workout.id);
   });
+  toast.success("Marked as done")
   }
 
     return (

@@ -1,15 +1,21 @@
 
 'use client'
 import React, { useContext } from 'react';
+import { toast } from 'react-toastify';
 import { Workout } from '@/types/workouttype';
 import { Plancontext } from '@/context/Plancontext';
 import { AddtodaysPlanProps } from '@/types/props';
 
 const AddtodaysPlan = ({workout}: AddtodaysPlanProps) => {
-    const {setPlan}= useContext(Plancontext)
+    const {plan, setPlan}= useContext(Plancontext)
     const handleAddtoplan = ()=>{
 console.log("button triggerd", workout)
+if (plan.some((item) => item.id === workout.id)) {
+  toast.warning("Already in today's plan")
+  return
+}
 setPlan((previousplan)=>[...previousplan, workout] as Workout[])
+toast.success("Added to today's plan")
     }
     return (
         <div>

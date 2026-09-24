@@ -1,6 +1,7 @@
 
 'use client'
 import React, { useContext } from 'react';
+import { toast } from 'react-toastify';
 import { SaveforLaterProps } from '@/types/props';
 import { Workout } from '@/types/workouttype';
 import { Plancontext } from '@/context/Plancontext';
@@ -11,7 +12,12 @@ const SaveforLater = ({workout}: SaveforLaterProps) => {
     const {saved, setSaved}= useContext(Plancontext)
     const handleSaveforLater = ()=>{
 console.log("button triggerd", workout)
-setSaved((previousplan)=>[...previousplan, workout] as Workout[])}
+if (saved.some((item) => item.id === workout.id)) {
+  toast.warning("Already saved for later")
+  return
+}
+setSaved((previousSaved)=>[...previousSaved, workout] as Workout[])
+toast.success("Saved for later")}
     return (
      <div>
              <button

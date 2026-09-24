@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import MarkAsDone from '@/components/Buttons/markAsDone';
+import { toast } from 'react-toastify';
 import { ListedCardWorkoutProps } from "@/types/props";
 
 
@@ -66,7 +67,10 @@ const ListedCardWorkout = ({ workout, setPlan }: ListedCardWorkoutProps) => {
 
        
        <button
-          onClick={() => setPlan((prev) => prev.filter((item) => item.id !== workout.id))}
+          onClick={() => {
+            setPlan((prev) => prev.filter((item) => item.id !== workout.id))
+            toast.success("Removed from today's plan")
+          }}
           className="px-2 text-2xl text-zinc-600 transition hover:text-red-500"
         >
           ×

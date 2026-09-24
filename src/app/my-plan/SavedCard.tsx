@@ -3,10 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { ListedCardWorkoutProps } from "@/types/props";
+import { LibrarycardProps } from "@/types/props";
 
 
-const ListedCardWorkout = ({ workout }: ListedCardWorkoutProps) => {
+const ListedCardWorkout = ({ workout }: LibrarycardProps) => {
     
   return (
     <div className="flex flex-col gap-5 rounded-2xl border border-zinc-800 bg-[#12151b] p-5 md:flex-row md:items-center">
