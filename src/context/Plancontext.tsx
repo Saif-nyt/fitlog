@@ -1,22 +1,29 @@
+'use client'
 
-import {useState} from 'react'
+import {useState, createContext} from 'react'
 import React from 'react';
-const Playcontext = createContext()
-const PlanProvider = ({children}) => {
+import { Workout } from '@/types/workouttype';
+import { PlanContextValue, defaultPlanContextValue } from '@/types/context';
+import { PlanProviderProps } from '@/types/props';
 
-    const [plan, setPlan] = useState([]);
-  const [saved, setSaved] = useState([]);
+export const Plancontext = createContext<PlanContextValue>(defaultPlanContextValue)
+const PlanProvider = ({children}: PlanProviderProps) => {
+
+    const [plan, setPlan] = useState<Workout[]>([]);
+  const [saved, setSaved] = useState<Workout[]>([]);
+const [completed, setCompleted] = useState<Workout[]>([]);
   const sharedata= {
     plan,
     setPlan,
     saved,
-    setSaved
+    setSaved,
+    completed,
+    setCompleted
+
   }
+  
     return (
-        <div>
-          <Playcontext.provider value ={sharedata} >{children}</Playcontext.provider>
-        
-        </div>
+        <Plancontext.Provider value ={sharedata} >{children}</Plancontext.Provider>
     );
 };
 

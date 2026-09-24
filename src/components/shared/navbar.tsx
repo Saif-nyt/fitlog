@@ -1,10 +1,14 @@
 
 import Logo from "@/assets/logo.png"
-import React from 'react';
+import React from 'react';  
 import Link from 'next/link';
 import Image from 'next/image';
 
+import Plan from './plan';
+import Saved from './Saved';
+
 const Navbar = () => {
+    
     return (
         <nav className="border-b border-zinc-800 bg-[#0f0f11] sticky top-0 z-50 px-6 py-4 flex items-center justify-between">
     <div className="flex items-center gap-2 font-bold text-lg"><Image alt="FitLog" src={Logo} width={28} height={28} />FITLOG</div> 
@@ -25,12 +29,11 @@ const Navbar = () => {
       </div>
 
       <Link href="/my-plan" className="flex gap-3">
-        <span className="bg-[#ccff00] text-black font-bold px-3 py-1 rounded-full text-xs flex items-center">
-          Plan 0
-        </span>
-        <span className="border border-zinc-700 text-zinc-300 font-bold px-3 py-1 rounded-full text-xs flex items-center">
-          Saved 0
-        </span>
+       
+
+        <Plan />
+        <Saved/>
+       
       </Link>
     </nav>
     );

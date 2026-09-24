@@ -13,7 +13,7 @@ const Banner = () => {
           Train with intent. <br /> Log every set.
         </h1>
         <p className="text-zinc-400 mb-6">
-          FitLog is a dark, no-nonsense gym companion: pick a lift, lock it into today's plan, and watch the week's work add up.
+          FitLog is a dark, no-nonsense gym companion: pick a lift, lock it into today&apos;s plan, and watch the week&apos;s work add up.
         </p>
         <a
           href="#library"
