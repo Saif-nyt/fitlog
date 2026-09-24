@@ -3,16 +3,14 @@
 import { Plancontext } from '@/context/Plancontext';
 import React, { useContext } from 'react';
 import ListedCardWorkout from './ListedCardWorkout';
-
+import SavedCard from './SavedCard'
 const Page = () => {
   const {plan, saved, setPlan}=useContext(Plancontext)
   const totalExercises = plan.length;
   const totalMinutes = plan.reduce((sum, item) => sum + Number(item.duration ), 0);
   const totalCalories = plan.reduce((sum, item) => sum + Number(item.caloriesBurned), 0);
  
-  console.log('plaaaan =',plan,'saveeeed=', saved, totalCalories, totalExercises, totalMinutes )
 
-  console.log("PLAN:", plan);
 
 plan.forEach((item) => {
   console.log(
@@ -76,7 +74,7 @@ plan.forEach((item) => {
 
 
 <div className="tabs tabs-lift">
-  <input type="radio" name="my_tabs_3" className="tab" aria-label="Today's Plan" />
+  <input type="radio" name="my_tabs_3" className="tab" aria-label="Today's Plan" defaultChecked/>
   <div className="tab-content bg-base-100 border-base-300 p-6">
 
 {plan.map((workout) => (
@@ -90,8 +88,14 @@ plan.forEach((item) => {
 
   </div>
 
-  <input type="radio" name="my_tabs_3" className="tab" aria-label="Tab 2" defaultChecked />
-  <div className="tab-content bg-base-100 border-base-300 p-6">Tab content 2</div>
+  <input type="radio" name="my_tabs_3" className="tab" aria-label="Saved" />
+  <div className="tab-content bg-base-100 border-base-300 p-6">Tab content 2
+
+{saved.map((workout) => (
+  <SavedCard key={workout.id} workout={workout} />
+))}
+
+  </div>
 
 </div>
     </div>
