@@ -15,12 +15,12 @@ const Navbar = () => {
     const linkClass = (href: string) => {
         const isActive = href === "/" ? pathname === "/" || pathname.startsWith("/workout") : pathname.startsWith(href);
         return isActive
-            ? "text-[#d4ff00] bg-[#1a2203] rounded-full px-6 py-3 transition-colors"
-            : "text-zinc-400 rounded-full px-6 py-3 hover:text-white transition-colors";
+            ? "text-[#d4ff00] bg-[#1a2203] rounded-full px-3 sm:px-6 py-3 transition-colors"
+            : "text-zinc-400 rounded-full px-3 sm:px-6 py-3 hover:text-white transition-colors";
     };
 
     return (
-        <nav className="border-b border-zinc-800 bg-[#0f0f11] sticky top-0 z-50 px-6 py-4 flex items-center justify-between">
+        <nav className="border-b border-zinc-800 bg-[#0f0f11] sticky top-0 z-50 px-4 sm:px-6 py-4 flex flex-wrap sm:flex-nowrap items-center justify-between gap-y-3">
             <div className="flex items-center gap-2 font-bold text-sm text-white">
                 <Image alt="FitLog" src={Logo} width={24} height={24} />
                 FITLOG
@@ -31,7 +31,7 @@ const Navbar = () => {
                   href="/"
                   className={linkClass("/")}
                 >
-                  Workouts
+                  Workout
                 </Link>
                 <Link
                   href="/my-plan"
@@ -41,10 +41,10 @@ const Navbar = () => {
                 </Link>
             </div>
 
-            <Link href="/my-plan" className="flex gap-3">
+            <div className="flex gap-3">
                 <Plan />
                 <Saved />
-            </Link>
+            </div>
         </nav>
     );
 };

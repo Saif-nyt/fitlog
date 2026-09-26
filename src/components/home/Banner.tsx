@@ -9,7 +9,7 @@ const Banner = () => {
     <section className="py-16 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
       <div>
         <p className="text-[#ccff00] font-bold text-sm tracking-widest mb-2">WORKOUT LIBRARY</p>
-        <h1 className="text-4xl md:text-6xl font-black uppercase mb-4 leading-tight">
+        <h1 className="hero-display text-4xl md:text-6xl font-black uppercase mb-4 leading-tight">
           Train with intent. <br /> Log every set.
         </h1>
         <p className="text-zinc-400 mb-6">
@@ -17,9 +17,23 @@ const Banner = () => {
         </p>
         <a
           href="#library"
-          className="bg-[#ccff00] text-black font-extrabold px-6 py-3 rounded hover:bg-lime-400 transition inline-block"
+          className="bg-[#ccff00] text-black font-extrabold px-6 py-3 rounded hover:bg-lime-400 transition inline-flex items-center gap-2"
         >
-          BROWSE WORKOUTS ↓
+          BROWSE WORKOUTS
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2.5"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
         </a>
       </div>
       <div>

@@ -7,11 +7,12 @@ import Link from 'next/link';
 const Saved = () => {
     const { saved } = useContext(Plancontext);
     return (
-        <Link href="../my-plan" className="flex items-center gap-2 text-zinc-300 hover:text-white transition-colors">
-            <span className="text-sm font-medium">Saved</span>
-            <span className="border border-zinc-700 text-zinc-300 font-medium h-6 w-6 rounded-full text-xs flex items-center justify-center">
-                {saved.length}
-            </span>
+        <Link
+            href="/my-plan"
+            className="flex items-center gap-1.5 rounded-full border border-zinc-700 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-zinc-500 hover:text-white"
+        >
+            <span>Saved</span>
+            <span>{saved.length}</span>
         </Link>
     );
 };

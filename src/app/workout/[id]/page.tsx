@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import AddtodaysPlan from '@/components/Buttons/AddtodaysPlan';
 import SaveforLater from '@/components/Buttons/SaveforLater';
 import { Workout } from '@/types/workouttype';
@@ -7,7 +8,6 @@ import { WorkoutPageParams } from '@/types/pages';
 
 const BookdetailsPage = async ({params}: WorkoutPageParams) => {
     const {id}= await params
-    console.log("the id is =", id)
 
     const getData = async (): Promise<Workout[]> => {
     const response = await fetch(
@@ -16,12 +16,12 @@ const BookdetailsPage = async ({params}: WorkoutPageParams) => {
 
     const data = await response.json();
 
-    console.log(data);
-
     return data;
 };
 const Workoutdetails= await getData()
-const workout= Workoutdetails.find((workout: Workout)=> workout.id === Number(id)) as Workout
+const workout= Workoutdetails.find((workout: Workout)=> workout.id === Number(id))
+
+if (!workout) notFound()
 
 
     return (
@@ -52,8 +52,12 @@ const workout= Workoutdetails.find((workout: Workout)=> workout.id === Number(id
             <span>{workout.difficulty}</span>
           </div>
           <div className="flex justify-between border-b border-zinc-800 pb-2">
-            <span className="text-zinc-500">SETS / REPS</span>
-            <span>{workout.sets} / {workout.reps}</span>
+            <span className="text-zinc-500">SETS</span>
+            <span>{workout.sets}</span>
+          </div>
+          <div className="flex justify-between border-b border-zinc-800 pb-2">
+            <span className="text-zinc-500">REPS</span>
+            <span>{workout.reps}</span>
           </div>
           <div className="flex justify-between border-b border-zinc-800 pb-2">
             <span className="text-zinc-500">DURATION</span>

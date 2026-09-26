@@ -14,16 +14,6 @@ const Page = () => {
   const totalMinutes = plan.reduce((sum, item) => sum + Number(item.duration), 0);
   const totalCalories = plan.reduce((sum, item) => sum + Number(item.caloriesBurned), 0);
 
-  plan.forEach((item) => {
-    console.log(
-      item.name,
-      "duration:",
-      item.duration,
-      "calories:",
-      item.caloriesBurned
-    );
-  });
-
   
   const sortList = <T extends { duration?: number | string; caloriesBurned?: number | string; rating?: number | string }>(list: T[]) => {
     return [...list].sort((a, b) => {
